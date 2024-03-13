@@ -3,6 +3,10 @@ public:
     int missingNumber(vector<int>& nums) {
         
         int n=nums.size();
+
+
+        // By HASHING :
+
         // bool *findnumber=new bool[n+1];
         // bool found=false;
 
@@ -32,26 +36,46 @@ public:
 
         // return n;
 
-        int arrayxor=nums[0];
 
-        for(int i=1;i<n;i++)
+        // By BITWISE MANIPULATION:
+
+
+        // int arrayxor=nums[0];
+
+        // for(int i=1;i<n;i++)
+        // {
+        //     arrayxor^=nums[i];
+        // }
+
+        // cout<<"arrayxor: "<<arrayxor<<endl;
+
+        // int naturalxor=0;
+
+        // for(int i=1;i<=n;i++)
+        // {
+        //     naturalxor^=i;
+        // }
+
+        // cout<<"naturalxor: "<<naturalxor<<endl;
+                // return naturalxor^arrayxor;
+
+
+        // By SUM OF N NATURAL NUMBERS:
+
+        int sumofnatural=0;
+        int sumofarray=0;
+
+        for(int i=0;i<n;i++)
         {
-            arrayxor^=nums[i];
+            sumofarray+=nums[i];
         }
-
-        cout<<"arrayxor: "<<arrayxor<<endl;
-
-        int naturalxor=0;
 
         for(int i=1;i<=n;i++)
         {
-            naturalxor^=i;
+            sumofnatural+=i;
         }
-
-        cout<<"naturalxor: "<<naturalxor<<endl;
         
-        
-        return naturalxor^arrayxor;
+        return sumofnatural-sumofarray;
 
     }
 };
